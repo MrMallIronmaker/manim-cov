@@ -54,7 +54,7 @@ jobs:
       - name: Create coverage report
         run: |
           poetry run coverage run -m pytest
-          poetry run coverage --append run -m pytest --doctest-modules manim
+          poetry run coverage run --append -m pytest --doctest-modules manim
 
       - name: Upload coverage
         uses: codecov/codecov-action@v1
