@@ -113,7 +113,7 @@ jobs:
       - name: Install manim
         run: |
           poetry install -E webgl_renderer
-
+          
       - name: Run tests
         run: poetry run pytest
 
@@ -122,3 +122,14 @@ jobs:
 
       - name: Run doctests in rst files
         run: cd docs && pip install -r requirements.txt && poetry run make doctest O=-tskip-manim
+      
+      - name: Create coverage report
+        if: runner.os == 'Ubuntu' && runner.python == '3.7'
+        run: |
+          poetry install coverage
+          poetry run coverage
+          poetry run coverage --append --doctest-modules manim
+      
+      - name: Upload coverage
+        if: runner.os == 'Ubuntu' && runner.python == '3.7'
+        uses: codecov/codecov-action@v1
