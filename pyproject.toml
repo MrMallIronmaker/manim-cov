@@ -53,7 +53,6 @@ pylint = "*"
 guzzle_sphinx_theme = "*"
 recommonmark = "*"
 matplotlib = "^3.3.2"
-coverage = "*"
 
 [tool.poetry.dev-dependencies.black]
 version = "^20.8b1"
