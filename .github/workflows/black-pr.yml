@@ -18,7 +18,7 @@ jobs:
         run: |
           prnum=$(python -c "import json;print(json.load(open(r'${GITHUB_EVENT_PATH}'))['number'])")
           git init
-          git remote add origin https://github.com/ManimCommunity/manim.git
+          git remote add origin https://github.com/MrMallIronmaker/manim-cov.git
           git fetch origin pull/${prnum}/head:pr-${prnum}
           git checkout pr-${prnum}
 
