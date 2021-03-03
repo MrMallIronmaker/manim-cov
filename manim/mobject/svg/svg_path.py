@@ -48,7 +48,7 @@ class SVGPathMobject(VMobject):
         VMobject.__init__(self, **kwargs)
         self.current_path_start = np.zeros((1, self.dim))
 
-    def get_path_commands(self):
+    def get_path_commands(self) -> List[str]:
         """Returns a list of possible path commands used within an SVG ``d``
         attribute.
 
