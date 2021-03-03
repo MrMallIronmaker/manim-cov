@@ -2,7 +2,7 @@ name: black-check
 on:
   pull_request:
       branches:
-        - master
+        - main
 
 jobs:
   check-format:
