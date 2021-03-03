@@ -27,6 +27,11 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
 
+      - name: Test Test OS
+        if: runner.os == 'Linux' && runner.python == '3.7'
+        run: |
+          echo "Foobar McGee"
+      
       - name: Install Poetry
         run: |
           pip install wheel
@@ -124,12 +129,11 @@ jobs:
         run: cd docs && pip install -r requirements.txt && poetry run make doctest O=-tskip-manim
       
       - name: Create coverage report
-        if: runner.os == 'Ubuntu' && runner.python == '3.7'
+        if: runner.os == 'Linux' && runner.python == '3.7'
         run: |
-          poetry install coverage
-          poetry run coverage
-          poetry run coverage --append --doctest-modules manim
+          poetry run coverage -m pytest
+          poetry run coverage --append -m pytest --doctest-modules manim
       
       - name: Upload coverage
-        if: runner.os == 'Ubuntu' && runner.python == '3.7'
+        if: runner.os == 'Linux' && runner.python == '3.7'
         uses: codecov/codecov-action@v1
