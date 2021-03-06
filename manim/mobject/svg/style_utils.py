@@ -76,7 +76,7 @@ def cascade_element_style(
                     # there was just a stray semicolon at the end, producing an emptystring
                     pass
                 else:
-                    raise e
+                    raise e  # pragma: no cover
             else:
                 style[key] = value
 
