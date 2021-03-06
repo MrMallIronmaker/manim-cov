@@ -55,6 +55,9 @@ guzzle_sphinx_theme = "*"
 recommonmark = "*"
 matplotlib = "^3.3.2"
 
+[tool.coverage.run]
+omit = "*tests*"
+
 [tool.poetry.dev-dependencies.black]
 version = "^20.8b1"
 allow-prereleases = false
