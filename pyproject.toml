@@ -61,11 +61,9 @@ allow-prereleases = false
 python = "^3.6"
 markers = "platform_python_implementation == 'CPython'"
 
-[tool.pytest]
-addopts = "--cov=manim --cov-report xml"
-
 [tool.pytest.ini_options]
 markers = "slow: Mark the test as slow. Can be skipped with --skip_slow"
+addopts = "--cov=manim --cov-report xml"
 
 [tool.poetry.plugins]
 [tool.poetry.plugins."console_scripts"]
