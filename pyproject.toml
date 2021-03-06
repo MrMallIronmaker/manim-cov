@@ -65,6 +65,9 @@ markers = "platform_python_implementation == 'CPython'"
 markers = "slow: Mark the test as slow. Can be skipped with --skip_slow"
 addopts = "--cov=manim --cov-report xml"
 
+[tool.coverage.run]
+omit = "*tests*"
+
 [tool.poetry.plugins]
 [tool.poetry.plugins."console_scripts"]
 "manim" = "manim.__main__:main"
